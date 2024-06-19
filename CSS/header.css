@@ -1,0 +1,201 @@
+:root{
+    --primary-color: #357266;
+    --primary-hover: #0E3B43;
+    --secondary-color: #81C5B8;
+    --secondary-hover: #4DA897;
+    --bg-color: #F5F5F5 ; 
+    --light-font-color: #F4EDED;
+    --dark-font-color: #0A0B0B;
+    --mute-font-color: #353B3C;
+}
+
+header {
+    padding: 10px;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid lightgray;
+    .container {
+        width: 80%;
+        max-width: 1440px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo{
+            color: var(--primary-hover);
+            i{
+                font-size: 28px;
+            }
+            span{
+                color: var(--primary-color);
+                text-transform: lowercase;
+            }
+        }
+
+        nav{
+            display: flex;
+            gap: 10px;
+
+            .primary-btn{
+                margin-left: 16px;
+            }
+        }
+
+        .mobile-nav{
+            display: none;
+            top: -300px;
+            transition: all 800mss ease-in;
+        }
+
+        nav ul{
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            
+            li a{
+                position: relative;
+                color: var(--dark-font-color);
+                font-weight: 600;
+                font-size: 14px;
+                transition: all 500ms ease-in;
+            }
+
+            li a::before{
+                position: absolute;
+                content: '';
+                height: 2px;
+                bottom: 0;
+                background-color: var(--primary-color);
+            }
+
+            li a:hover::before{
+                animation: slideIn 500ms;
+                animation-fill-mode: forwards;
+            }
+
+            li a:hover{
+                color: var(--primary-color);
+            }
+        }
+
+        .menu{
+            display: none;
+        }
+
+    }
+}
+
+
+@keyframes slideIn {
+    from{
+        left: 0%;
+        width: 0%;
+    }
+    to{
+        left: 0;
+        width: 100%;
+    }
+}
+
+@keyframes slideTop {
+    from{
+        top: -100%;
+        right: -100px;
+        width: 0%;
+    }
+    to{
+        top: 80px;
+        right: 0;
+        width: 40%;
+    }
+}
+
+@keyframes slideTopSmall {
+    from{
+        top: -300px;
+        right: 100px;
+        width: 0%;
+    }
+    to{
+        top: 80px;
+        right: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:860px){
+    header{
+        .container{
+            position: relative;
+            nav {
+                display: none;
+            }
+
+            .menu{
+                display: block;
+            }
+
+            .menu button {
+                font-size: 1.5rem;
+                color: var(--dark-font-color);
+                display: flex;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .mobile-nav.active{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                top: 80px;
+                padding: 1rem;
+                border-radius: 8px;
+                right: 24px;
+                width: 40%;
+                background-color: #d3d8dd;
+                animation:  slideTop 500ms;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    
+                }
+
+                .primary-btn{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width:768px) {
+    header{
+        .container{
+            .mobile-nav.active{
+                width: 100%;
+                right: 0;
+                animation:  slideTopSmall 500ms;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header{
+        .container{
+            width: 95%;
+        }
+    }
+
+        
+    .logo h4{
+        font-size: 1rem;
+    }
+}
