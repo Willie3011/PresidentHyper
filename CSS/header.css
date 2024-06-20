@@ -148,13 +148,14 @@ header {
             }
 
             .mobile-nav.active{
+                z-index: 1000;
                 position: absolute;
                 display: flex;
                 flex-direction: column;
                 top: 80px;
                 padding: 1rem;
                 border-radius: 8px;
-                right: 24px;
+                right: 0;
                 width: 40%;
                 background-color: #d3d8dd;
                 animation:  slideTop 500ms;
