@@ -299,6 +299,50 @@
     }
 }
 
+#subscribe{
+    width: 100%;
+    height: auto;
+    margin: 38px auto;
+
+    .container{
+        margin: auto;
+        width: 80%;
+        max-width: 1440px;
+
+        h2, p{
+            text-align: center;
+        }
+
+        h2{
+            font-size: 30px;
+        }
+
+        p{
+            color: var(--mute-font-color);
+            margin-top: -4px;
+            font-size: 14px;
+        }
+
+        .form{
+            margin: 20px auto;
+            width: 80%;
+            input{
+                color: gray;
+                padding: 14px;
+                border: 1px solid slategray;
+                border-radius: 4px;
+                width: 85%;
+            }
+
+            button{
+                padding: 14px;
+            }
+            
+        }
+    }
+    
+}
+
 @media  screen and (max-width:991px) {
     #home{
         height: auto;
@@ -319,11 +363,32 @@
             gap: 6px;
         }
     }
+
+    #subscribe{
+        .container{
+            width: 90%;
+            .form{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+
+                input{
+                    width: 70%;
+                }
+
+                button{
+                    height: 80%;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
     #Shop{
-        .daily-container{
+        .daily-container, .bakery-container{
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             .product-card{
                 width: 100px;
