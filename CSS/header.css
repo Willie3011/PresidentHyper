@@ -1,9 +1,9 @@
-:root{
+:root {
     --primary-color: #357266;
     --primary-hover: #0E3B43;
     --secondary-color: #81C5B8;
     --secondary-hover: #4DA897;
-    --bg-color: #F5F5F5 ; 
+    --bg-color: #F5F5F5;
     --light-font-color: #F4EDED;
     --dark-font-color: #0A0B0B;
     --mute-font-color: #353B3C;
@@ -21,7 +21,7 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid lightgray;
-    
+
     .container {
         width: 80%;
         max-width: 1440px;
@@ -30,38 +30,112 @@ header {
         align-items: center;
         justify-content: space-between;
 
-        .logo{
+        .logo {
             color: var(--primary-hover);
-            i{
+
+            i {
                 font-size: 28px;
             }
-            span{
+
+            span {
                 color: var(--primary-color);
                 text-transform: lowercase;
             }
         }
 
-        nav{
+        nav {
+            height: 100%;
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 20px;
 
-            .primary-btn{
-                margin-left: 16px;
+            .separator {
+                width: 1px;
+                height: 30px;
+                background-color: rgba(112, 128, 144, 0.9);
+            }
+
+            .buttons {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .register,
+                .login {
+                    width: max-content;
+                    font-size: 14px;
+                    color: var(--dark-font-color);
+                    font-weight: 600;
+                }
+
+                .register::before, .login::before {
+                    position: absolute;
+                    content: '';
+                    height: 2px;
+                    bottom: 0;
+                    background-color: var(--primary-color);
+                }
+    
+                .register:hover::before, .login:hover::before {
+                    animation: slideIn 500ms;
+                    animation-fill-mode: forwards;
+                }
+
+                .register:hover,
+                .login:hover {
+                    color: var(--primary-color);
+                    transform: scale(1.05);
+                }
+
+                .cart {
+                    margin-left: 2px;
+                    height: 40px;
+                    width: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark-font-color);
+                    position: relative;
+
+                    i {
+                        font-size: 28px;
+                    }
+
+                    span {
+                        background-color: var(--primary-color);
+                        color: white;
+                        font-size: 10px;
+                        height: 15px;
+                        width: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 4px;
+                        right: 4px;
+                    }
+                }
+
+                .cart:hover i{
+                    transform: scale(0.9);
+                }
             }
         }
 
-        .mobile-nav{
+
+        .mobile-nav {
             display: none;
             top: -300px;
             transition: all 800mss ease-in;
         }
 
-        nav ul{
+        nav ul {
             display: flex;
             align-items: center;
             gap: 22px;
-            
-            li a{
+
+            li a {
                 position: relative;
                 color: var(--dark-font-color);
                 font-weight: 600;
@@ -69,7 +143,7 @@ header {
                 transition: all 500ms ease-in;
             }
 
-            li a::before{
+            li a::before {
                 position: absolute;
                 content: '';
                 height: 2px;
@@ -77,17 +151,17 @@ header {
                 background-color: var(--primary-color);
             }
 
-            li a:hover::before{
+            li a:hover::before {
                 animation: slideIn 500ms;
                 animation-fill-mode: forwards;
             }
 
-            li a:hover{
+            li a:hover {
                 color: var(--primary-color);
             }
         }
 
-        .menu{
+        .menu {
             display: none;
         }
 
@@ -96,23 +170,25 @@ header {
 
 
 @keyframes slideIn {
-    from{
+    from {
         left: 0%;
         width: 0%;
     }
-    to{
+
+    to {
         left: 0;
         width: 100%;
     }
 }
 
 @keyframes slideTop {
-    from{
+    from {
         top: -100%;
         right: -100px;
         width: 0%;
     }
-    to{
+
+    to {
         top: 80px;
         right: 0;
         width: 40%;
@@ -120,28 +196,75 @@ header {
 }
 
 @keyframes slideTopSmall {
-    from{
+    from {
         top: -300px;
         right: 100px;
         width: 0%;
     }
-    to{
+
+    to {
         top: 80px;
         right: 0;
         width: 100%;
     }
 }
 
-@media screen and (max-width:860px){
+@media screen and (max-width: 1220px){
     header{
         .container{
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width:991px) {
+    header {
+        .container {
+            width: 80%;
             position: relative;
+
             nav {
                 display: none;
             }
 
-            .menu{
-                display: block;
+            .menu {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .cart {
+                    margin-left: 2px;
+                    height: 40px;
+                    width: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark-font-color);
+                    position: relative;
+
+                    i {
+                        font-size: 24px;
+                    }
+
+                    span {
+                        background-color: var(--primary-color);
+                        color: white;
+                        font-size: 10px;
+                        height: 15px;
+                        width: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 4px;
+                        right: 4px;
+                    }
+                }
+
+                .cart:hover i{
+                    transform: scale(0.9);
+                }
             }
 
             .menu button {
@@ -152,7 +275,7 @@ header {
                 cursor: pointer;
             }
 
-            .mobile-nav.active{
+            .mobile-nav.active {
                 z-index: 1000;
                 position: absolute;
                 display: flex;
@@ -162,46 +285,48 @@ header {
                 border-radius: 8px;
                 right: 0;
                 width: 40%;
+                height: auto;
                 background-color: #d3d8dd;
-                animation:  slideTop 500ms;
-                ul{
+                animation: slideTop 500ms;
+
+                ul {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     width: 100%;
-                    
+
                 }
 
-                .primary-btn{
+                .primary-btn {
                     margin-left: 0;
                 }
             }
         }
     }
-    
+
 }
 
 @media screen and (max-width:768px) {
-    header{
-        .container{
-            .mobile-nav.active{
+    header {
+        .container {
+            .mobile-nav.active {
                 width: 100%;
                 right: 0;
-                animation:  slideTopSmall 500ms;
+                animation: slideTopSmall 500ms;
             }
         }
     }
 }
 
 @media screen and (max-width: 600px) {
-    header{
-        .container{
+    header {
+        .container {
             width: 95%;
         }
     }
 
-        
-    .logo h4{
+
+    .logo h4 {
         font-size: 1rem;
     }
 }
